@@ -23,16 +23,11 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Extract Android project
-        run: |
-      - name: Extract Android project
+                  - name: Extract Android project
         run: |
           unzip -q AURIX-AI-GitHub-APK-Build-Bundle.zip -d build-bundle
           cp -R build-bundle/android ./android
           sed -i 's#http://10.0.2.2:8000#https://aurix-ai-w3ad.onrender.com#g' android/app/build.gradle.kts
-
-
-        
       - name: Build APK
         uses: gradle/gradle-build-action@v3
         with:
